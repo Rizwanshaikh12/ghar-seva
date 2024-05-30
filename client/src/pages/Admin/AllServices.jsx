@@ -20,7 +20,7 @@ const AllServices = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${process.env.SERVER_BASE_URL}/service/`);
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_BASE_URL}/service/`);
                 if (response.status !== 200) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }

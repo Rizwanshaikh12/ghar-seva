@@ -73,7 +73,7 @@ function AddService() {
             const { name, description, subServices } = formDetails;
             console.log(formDetails);
             const response = await toast.promise(
-                axios.post('process.env.SERVER_BASE_URL/service', {
+                axios.post('process.env.REACT_APP_SERVER_BASE_URL/service', {
                     name,
                     description,
                     image: file,

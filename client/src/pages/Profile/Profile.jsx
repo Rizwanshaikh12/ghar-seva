@@ -11,7 +11,7 @@ const Profile = () => {
         setLoading(true)
         const getUser = async () => {
             try {
-                const { data } = await axios.get(`${process.env.SERVER_BASE_URL}/user/${id}`, {
+                const { data } = await axios.get(`${process.env.REACT_APP_SERVER_BASE_URL}/user/${id}`, {
                     headers: {
                         'authorization': `Bearer ${localStorage.getItem("token")}`
                     }

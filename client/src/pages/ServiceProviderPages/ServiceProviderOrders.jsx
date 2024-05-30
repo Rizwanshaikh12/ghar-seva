@@ -21,7 +21,7 @@ const ServiceProviderOrders = () => {
             if (!token) {
                 throw new Error("Token not found in localStorage.");
             }
-            const response = await axios.get(`${process.env.SERVER_BASE_URL}/order/`, {
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_BASE_URL}/order/`, {
                 headers: {
                     authorization: `Bearer ${token}`,
                 },
@@ -55,7 +55,7 @@ const ServiceProviderOrders = () => {
             if (!token) {
                 throw new Error("Token not found in localStorage.");
             }
-            await axios.put(`${process.env.SERVER_BASE_URL}/order/cancel/${selectedOrder._id}`,
+            await axios.put(`${process.env.REACT_APP_SERVER_BASE_URL}/order/cancel/${selectedOrder._id}`,
                 { status: status },
                 {
                     headers: {

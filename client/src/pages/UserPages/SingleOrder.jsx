@@ -23,7 +23,7 @@ const SingleOrder = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${process.env.SERVER_BASE_URL}/order/user/${id}`, {
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_BASE_URL}/order/user/${id}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
@@ -52,7 +52,7 @@ const SingleOrder = () => {
             if (!token) {
                 throw new Error("Token not found in localStorage.");
             }
-            await axios.put(`${process.env.SERVER_BASE_URL}/order/cancel/${selectedOrder._id}`,
+            await axios.put(`${process.env.REACT_APP_SERVER_BASE_URL}/order/cancel/${selectedOrder._id}`,
                 { status: status },
                 {
                     headers: {
@@ -75,7 +75,7 @@ const SingleOrder = () => {
             if (!token) {
                 throw new Error("Token not found in localStorage.");
             }
-            const response = await axios.put(`${process.env.SERVER_BASE_URL}/order/complete/${selectedOrder._id}`,
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_BASE_URL}/order/complete/${selectedOrder._id}`,
                 { groupId: selectedOrder.groupId, fees: fees },
                 {
                     headers: {

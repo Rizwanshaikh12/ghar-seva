@@ -29,7 +29,7 @@ const VerifyEmail = () => {
                     setIsLoading(true);
                     try {
                         const response = await axios.post(
-                            `${process.env.SERVER_BASE_URL}/user/verify-email`,
+                            `${process.env.REACT_APP_SERVER_BASE_URL}/user/verify-email`,
                             {
                                 emailToken: emailToken
                             }
