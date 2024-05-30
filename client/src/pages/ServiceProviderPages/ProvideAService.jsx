@@ -42,7 +42,7 @@ const ProvideAService = () => {
         try {
             setSubmitting(true);
             const response = await axios.put(
-                `http://localhost:5000/api/service/${selectedService}`,
+                `${process.env.REACT_APP_SERVER_BASE_URL}/service/${selectedService}`,
                 { user },
                 {
                     headers: {
