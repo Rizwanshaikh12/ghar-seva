@@ -89,6 +89,7 @@ const UpdateProfile = () => {
                 }
             );
             dispatch(setUserInfo({ _id: id, name: info.name, email: info.email, profileImage: file, role: user.role, city: info.city }));
+            window.location.reload();
             return navigate(`/profile/${id}`);
         } catch (error) {
             console.log('Error', error);

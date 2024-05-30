@@ -6,19 +6,15 @@ import Repair from '../assets/repair.png';
 import Cleaning from '../assets/cleaning.jpeg';
 import ListOfCards from '../components/ListOfCards';
 import HomeCircles from '../components/HomeCircles';
-import { useDispatch } from "react-redux";
-import { setUserInfo } from "../redux/reducers/authSlice";
+import { useDispatch,useSelector } from "react-redux";
+import { setUserInfo,selectCurrentUser } from "../redux/reducers/authSlice";
 import { jwtDecode } from "jwt-decode";
 import axios from 'axios';
 
 const Home = () => {
     const dispatch = useDispatch();
     const token = localStorage.getItem('token');
-    let user = {
-        role: "coonsumer",
-        name: "rizwan",
-        _id: 21211122
-    }
+    let user = useSelector(selectCurrentUser);
     if(token) {
         user = jwtDecode(token);
     }
