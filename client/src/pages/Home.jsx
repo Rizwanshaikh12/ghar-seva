@@ -14,7 +14,11 @@ import axios from 'axios';
 const Home = () => {
     const dispatch = useDispatch();
     const token = localStorage.getItem('token');
-    let user = useSelector(selectCurrentUser);
+    let user = {
+        role: "coonsumer",
+        name: "rizwan",
+        _id: 21211122
+    }
     if(token) {
         user = jwtDecode(token);
     }
