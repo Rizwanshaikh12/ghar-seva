@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Image } from '@mui/icons-material';
 import { setUserInfo, selectCurrentUser } from '../../redux/reducers/authSlice';
+import {jwtDecode} from "jwt-decode";
 
 const UpdateProfile = () => {
     const { id } = useParams();
@@ -74,7 +75,7 @@ const UpdateProfile = () => {
                 return toast.error("Password must be at least 5 characters long");
             }
 
-            await toast.promise(
+            const {data} = await toast.promise(
                 axios.put(`${process.env.REACT_APP_SERVER_BASE_URL}/user/${id}`, {
                     city, name, email, password, address, mobile, profileImage: file
                 }, {
@@ -88,8 +89,9 @@ const UpdateProfile = () => {
                     loading: "updating user details...",
                 }
             );
-            dispatch(setUserInfo({ _id: id, name: info.name, email: info.email, profileImage: file, role: user.role, city: info.city }));
-            window.location.reload();
+            localStorage.setItem("token",data);
+            dispatch(setUserInfo(jwtDecode(localStorage.getItem("token"))));
+            // window.location.reload();
             return navigate(`/profile/${id}`);
         } catch (error) {
             console.log('Error', error);
