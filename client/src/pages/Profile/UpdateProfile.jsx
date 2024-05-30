@@ -75,7 +75,7 @@ const UpdateProfile = () => {
             }
 
             await toast.promise(
-                axios.put(`${process.env.REACT_APP_SERVER_BASE_URL}/api/user/${id}`, {
+                axios.put(`${process.env.REACT_APP_SERVER_BASE_URL}/user/${id}`, {
                     city, name, email, password, address, mobile, profileImage: file
                 }, {
                     headers: {
